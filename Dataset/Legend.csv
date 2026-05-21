@@ -1,0 +1,27 @@
+ABBREVIATION LEGEND;;;COLUMN MEANING;;;;Where collected from / How collected;
+Abbr;Meaning;;Column letter;Title;How data is collected;;Info;HOW?
+Adj;Adjuvant Therapy;;Y - AA;Receptors (ER,PR,HER2);For ER/PR and allred score greater than or equal to 3 was considered positive, for HER2 a staining of 3+ or a FISH ratio>2 was considered positive, if there was conflict in receptor status took the 1st duke run image cytometry;;Therapy (neo and adj);Collected from the clinical notes of breast oncologists, surgeons, and radiation oncologists
+BCS;Breast Conservation Surgery;;AB;Mol Subtype;Based on receptor status;;Surgery;Surgery was collected from the path/cyto tab, if not listed there found clinical note with surgery info
+f/u;Follow Up;;AM;Position;"Breast location of biopsy positive for cancer done before MRI (R=right, L=left and the number is the ""o'clock"" position of the cancer";;Receptor Status;Used path/cyto tab, found image cytometry
+L 3;Left Breast 3 o'clock;;BN - BP;Recurrence;Date of recurrence was date of pathology confirmed recurrence, if no pathology then date of imaging supporting recurrence;;Oncotype;"Can be found in pathology tab, but easier to use search function in upper right corner, search for ""oncotype"""
+R 11;Right Breast 11 o'clock;;;;;;TNM staging;Used the clinical notes of breast oncologists, surgeons, and radiation oncologists
+Neo/NAT;Neoadjuvant Therapy;;;;;;Tumor Pathology Data;Used path/cyto tab
+T1NFS;T1 Non-fat Saturated MRI Sequence;;;;;;Tumor Location;Used path/cyto tab, can find in note describing the biopsy specimen
+x;Info Not Available;;;;;;Last Recurrence Free Assessment;Used clinical notes, looked for last time patient evaluated for recurrence prior to this current visit or workup
+EMR;Electronic Medical Record;;;;;;Tumor Response to NAT (clinical);Tumor response data was extracted from imaging reports of patients w/ NAT (PL-PT) & cross checked with clinic notes (see column explanations for more detail) 
+NA;Not Available;;;;;;Tumor Response to NAT (path);Tumor response data was extracted from path reports of patients w/ NAT (PL-PT) & cross checked with clinic notes (see column explanations for more detail). 
+NP;Not Pertinent (this data does not apply in this case);;;;;;;
+NC;Data Not Collected;;;;;;;
+;;;;;;;;
+;;;;;;;;
+;;;;;;;;
+;;;;;;;;
+;;;;;;;;
+;;;;;;;;
+;;;;;;;;
+;;;;;;;;
+;;;;;;;;
+;;;;;;;;
+;;;;;;;;
+;;;;;;;;
+;;;;;;;;
