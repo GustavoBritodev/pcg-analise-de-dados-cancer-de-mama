@@ -153,8 +153,6 @@ ul {
 
 .grafico__dados {
     margin: -1rem 0 2rem;
-    padding: 0.25rem;
-    overflow-x: auto;
 }
 
 .grafico__dados:not([open])::details-content {
@@ -171,6 +169,10 @@ ul {
     margin: 1rem 0 0;
 }
 
+.tabela-rolavel {
+    overflow-x: auto;
+}
+
 .tabela-dados {
     width: 100%;
     margin-top: 1rem;
@@ -179,6 +181,8 @@ ul {
 }
 
 .tabela-dados caption {
+    position: sticky;
+    left: 0;
     margin-bottom: 0.5rem;
     text-align: left;
     font-weight: 600;
@@ -198,7 +202,13 @@ ul {
 }
 
 .tabela-dados th:first-child {
+    position: sticky;
+    left: 0;
     text-align: left;
+}
+
+.tabela-dados tbody th {
+    background-color: var(--card-bg);
 }
 
 .grafico__ampliar,
@@ -225,7 +235,8 @@ ul {
 
 .grafico__ampliar:focus-visible,
 .dialogo-grafico__fechar:focus-visible,
-.dialogo-grafico__area:focus-visible {
+.dialogo-grafico__area:focus-visible,
+.tabela-rolavel:focus-visible {
     outline: 2px solid var(--secondary);
     outline-offset: 2px;
 }
