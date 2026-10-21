@@ -36,19 +36,19 @@
             <h3 id="titulo-glossario">Glossário</h3>
             <dl class="glossario">
                 <dt><dfn lang="en">NaN</dfn></dt>
-                <dd>marcador usado pela biblioteca Pandas para indicar um valor ausente. Neste estudo, os códigos "NA", "NC", "NP" e "x" do conjunto de dados foram convertidos em <span lang="en">NaN</span>.</dd>
+                <dd>marcador usado pela biblioteca Pandas para indicar um valor ausente. Neste estudo, os códigos "NA", "NC", "NP" e "x" do conjunto de dados foram convertidos em <abbr lang="en" title="Not a Number">NaN</abbr>.</dd>
                 <dt><dfn><span lang="en">Unnamed: 98</span> e <span lang="en">Unnamed: 67</span></dfn></dt>
                 <dd>nomes que o Pandas dá automaticamente a colunas sem título no arquivo original. Essas duas colunas não têm nenhum valor preenchido (100% de ausência).</dd>
                 <dt><dfn>Neoadjuvante</dfn></dt>
                 <dd>tratamento sistêmico, como a quimioterapia, aplicado antes da cirurgia, com o objetivo de reduzir o tumor. A resposta a esse tratamento é avaliada no tecido retirado na cirurgia.</dd>
                 <dt><dfn>Estadiamento T/N</dfn></dt>
-                <dd>parte do sistema TNM de classificação do câncer. O T descreve o tamanho e a extensão do tumor primário, de T1 (menor) a T4 (maior). O N descreve o comprometimento dos linfonodos regionais, de N0 (nenhum linfonodo acometido) a N3 (maior comprometimento).</dd>
+                <dd>parte do sistema <abbr title="Tumor, Linfonodos e Metástase">TNM</abbr> de classificação do câncer. O T descreve o tamanho e a extensão do tumor primário, de T1 (menor) a T4 (maior). O N descreve o comprometimento dos linfonodos regionais, de N0 (nenhum linfonodo acometido) a N3 (maior comprometimento).</dd>
                 <dt><dfn lang="en">Boxplot</dfn></dt>
                 <dd>gráfico que resume uma distribuição numérica. A caixa vai do primeiro ao terceiro quartil, onde estão os 50% centrais dos valores; a linha interna marca a mediana; as hastes mostram a dispersão dos demais valores, e pontos isolados indicam valores atípicos.</dd>
                 <dt><dfn>Gráfico de violino</dfn></dt>
                 <dd>gráfico que combina um resumo por quartis com uma curva de densidade espelhada. Quanto mais largo o violino em determinada altura, mais pacientes se concentram naquele valor. Neste site, as linhas tracejadas internas marcam os quartis.</dd>
                 <dt><dfn>HER2</dfn></dt>
-                <dd>sigla, em inglês, do receptor 2 do fator de crescimento epidérmico humano, uma proteína da superfície das células. Tumores com excesso dessa proteína formam o subtipo HER2 Enriquecido e podem ser tratados com terapias-alvo dirigidas a ela.</dd>
+                <dd>sigla, em inglês, do receptor 2 do fator de crescimento epidérmico humano, uma proteína da superfície das células. Tumores com excesso dessa proteína formam o subtipo <abbr title="Receptor 2 do fator de crescimento epidérmico humano">HER2</abbr> Enriquecido e podem ser tratados com terapias-alvo dirigidas a ela.</dd>
             </dl>
         </section>
 
@@ -67,7 +67,7 @@
                 <p id="descricao-idade" class="grafico__descricao">A figura tem dois painéis. À esquerda, um histograma da idade das 305 pacientes analisadas, com curva de densidade: a mediana é de 48,1 anos e metade das pacientes tem entre 42,0 e 56,8 anos. À direita, a idade é comparada entre os estágios do tumor primário, de T1 a T4: as medianas são 48,1, 48,0, 50,2 e 45,5 anos, e as caixas se sobrepõem, sem indicar que pacientes mais jovens ou mais velhas cheguem ao diagnóstico em estágios mais avançados.</p>
                 <div class="tabela-rolavel" role="region" tabindex="0" aria-labelledby="legenda-tabela-idade">
                     <table id="tabela-idade" class="tabela-dados">
-                        <caption id="legenda-tabela-idade">Idade das pacientes por estágio do tumor (T), em anos</caption>
+                        <caption id="legenda-tabela-idade">Idade das pacientes por estágio do tumor (<abbr title="Tumor primário: tamanho e extensão do tumor">T</abbr>), em anos</caption>
                         <thead>
                             <tr>
                                 <th scope="col">Estágio do tumor</th>
@@ -134,7 +134,7 @@
                 <p id="descricao-estadiamento" class="grafico__descricao">O eixo horizontal mostra o estágio do tumor primário, de T1 a T4, e o eixo vertical mostra o estágio dos linfonodos, de N0 a N3, crescendo de baixo para cima. Em T1 e T2, a maior parte das pacientes está em N0 ou N1. Em T3, o volume se concentra em N1 e se estende até N3. Em T4, 8 das 15 pacientes estão em N1 e 5 estão em N3. A proporção de pacientes com linfonodos acometidos (N1 a N3) é de 61,2% em T1, 49,1% em T2, 79,6% em T3 e 93,3% em T4.</p>
                 <div class="tabela-rolavel" role="region" tabindex="0" aria-labelledby="legenda-tabela-estadiamento">
                     <table id="tabela-estadiamento" class="tabela-dados">
-                        <caption id="legenda-tabela-estadiamento">Pacientes por estágio do tumor (T) e dos linfonodos (N)</caption>
+                        <caption id="legenda-tabela-estadiamento">Pacientes por estágio do tumor (<abbr title="Tumor primário: tamanho e extensão do tumor">T</abbr>) e dos linfonodos (<abbr title="Linfonodos regionais acometidos">N</abbr>)</caption>
                         <thead>
                             <tr>
                                 <th scope="col">Estágio do tumor</th>
@@ -242,7 +242,7 @@
                                 <td>18,0</td>
                             </tr>
                             <tr>
-                                <th scope="row">HER2 Enriquecido</th>
+                                <th scope="row"><abbr title="Receptor 2 do fator de crescimento epidérmico humano">HER2</abbr> Enriquecido</th>
                                 <td>27</td>
                                 <td>8,9</td>
                             </tr>
@@ -297,7 +297,7 @@
                                 <td>33,3</td>
                             </tr>
                             <tr>
-                                <th scope="row">HER2 Enriquecido</th>
+                                <th scope="row"><abbr title="Receptor 2 do fator de crescimento epidérmico humano">HER2</abbr> Enriquecido</th>
                                 <td>9</td>
                                 <td>11</td>
                                 <td>20</td>
@@ -359,7 +359,7 @@
         <p>Autores: Arthur Santana Santos, Gustavo Martinho Santos de Brito, Miguel Dantas da Silva Vito e Pedro Henrique Valença d'Almeida.</p>
         <p>Universidade Católica de Santos (UNISANTOS)</p>
         <p>Pesquisa Curricularizada de Graduação, Ciência da Computação/Sistemas de Informação, 2026.</p>
-        <p>Dados: Saha et al. (2021), <span lang="en">The Cancer Imaging Archive</span>. DOI: <a href="https://doi.org/10.7937/TCIA.e3sv-re93">https://doi.org/10.7937/TCIA.e3sv-re93</a></p>
+        <p>Dados: Saha et al. (2021), <span lang="en">The Cancer Imaging Archive</span>. <abbr lang="en" title="Digital Object Identifier">DOI</abbr>: <a href="https://doi.org/10.7937/TCIA.e3sv-re93">https://doi.org/10.7937/TCIA.e3sv-re93</a></p>
         <p><a class="voltar-topo" href="#topo">Voltar ao topo</a></p>
     </footer>
 
