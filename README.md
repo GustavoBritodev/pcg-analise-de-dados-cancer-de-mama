@@ -4,7 +4,7 @@ Este repositório contém o pipeline completo de Análise Exploratória de Dados
 
 O objetivo principal da pesquisa é analisar dados clínicos, demográficos e moleculares do ecossistema de pacientes do estudo *Duke Breast Cancer*, mapeando padrões de comportamento da doença e identificando fatores preditivos para o sucesso do tratamento neoadjuvante.
 
-**Site publicado:** https://pcgeda-cancer-de-mama.netlify.app/
+**Site publicado:** https://pcg-eda-cancer-de-mama.netlify.app/
 
 **Dados:** Saha et al. (2021), The Cancer Imaging Archive. DOI: https://doi.org/10.7937/TCIA.e3sv-re93
 
