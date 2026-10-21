@@ -130,10 +130,18 @@ ul {
     overflow-x: auto;
 }
 
+.grafico__dados:not([open])::details-content {
+    display: none;
+}
+
 .grafico__dados summary {
     color: var(--secondary);
     font-weight: 600;
     cursor: pointer;
+}
+
+.grafico__descricao {
+    margin: 1rem 0 0;
 }
 
 .tabela-dados {

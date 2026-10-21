@@ -41,12 +41,13 @@
             <p>O gráfico abaixo cruza a distribuição etária com o estágio de gravidade do tumor (T), permitindo inferir visualmente se há uma tendência de diagnóstico tardio baseada na idade da paciente.</p>
 
             <figure class="grafico">
-                <img id="grafico-idade" class="grafico__imagem" src="assets/idade.png" alt="Distribuição de Idade das Pacientes">
+                <img id="grafico-idade" class="grafico__imagem" src="assets/idade.png" alt="Gráfico de idade das pacientes: metade tem entre 42,0 e 56,8 anos, e a mediana por estágio do tumor varia pouco, de 45,5 anos em T4 a 50,2 anos em T3." aria-describedby="descricao-idade">
                 <button type="button" class="grafico__ampliar" aria-describedby="legenda-idade">Ampliar gráfico</button>
                 <figcaption id="legenda-idade" class="grafico__legenda">Figura 1: Boxplot relacionando a idade da paciente ao estágio do tumor (T).</figcaption>
             </figure>
             <details class="grafico__dados">
                 <summary>Ver dados do gráfico</summary>
+                <p id="descricao-idade" class="grafico__descricao">A figura tem dois painéis. À esquerda, um histograma da idade das 305 pacientes analisadas, com curva de densidade: a mediana é de 48,1 anos e metade das pacientes tem entre 42,0 e 56,8 anos. À direita, a idade é comparada entre os estágios do tumor primário, de T1 a T4: as medianas são 48,1, 48,0, 50,2 e 45,5 anos, e as caixas se sobrepõem, sem indicar que pacientes mais jovens ou mais velhas cheguem ao diagnóstico em estágios mais avançados.</p>
                 <table id="tabela-idade" class="tabela-dados">
                     <caption>Idade das pacientes por estágio do tumor (T), em anos</caption>
                     <thead>
@@ -105,12 +106,13 @@
             <p>O gráfico de violino estruturado abaixo investiga a proporção exata de como o aumento de volume tumoral altera a probabilidade de disseminação linfática.</p>
 
             <figure class="grafico">
-                <img id="grafico-estadiamento" class="grafico__imagem" src="assets/estadiamento.png" alt="Relação entre Estadiamento T e N">
+                <img id="grafico-estadiamento" class="grafico__imagem" src="assets/estadiamento.png" alt="Gráfico de violino: tumores maiores concentram mais linfonodos acometidos, com 79,6% dos casos T3 e 93,3% dos T4 em N1 ou acima, contra 61,2% em T1 e 49,1% em T2." aria-describedby="descricao-estadiamento">
                 <button type="button" class="grafico__ampliar" aria-describedby="legenda-estadiamento">Ampliar gráfico</button>
                 <figcaption id="legenda-estadiamento" class="grafico__legenda">Figura 2: Gráfico de violino demonstrando a distribuição dos linfonodos acometidos por tamanho do tumor.</figcaption>
             </figure>
             <details class="grafico__dados">
                 <summary>Ver dados do gráfico</summary>
+                <p id="descricao-estadiamento" class="grafico__descricao">O eixo horizontal mostra o estágio do tumor primário, de T1 a T4, e o eixo vertical mostra o estágio dos linfonodos, de N0 a N3, crescendo de baixo para cima. Em T1 e T2, a maior parte das pacientes está em N0 ou N1. Em T3, o volume se concentra em N1 e se estende até N3. Em T4, 8 das 15 pacientes estão em N1 e 5 estão em N3. A proporção de pacientes com linfonodos acometidos (N1 a N3) é de 61,2% em T1, 49,1% em T2, 79,6% em T3 e 93,3% em T4.</p>
                 <table id="tabela-estadiamento" class="tabela-dados">
                     <caption>Pacientes por estágio do tumor (T) e dos linfonodos (N)</caption>
                     <thead>
@@ -185,12 +187,13 @@
             </ul>
 
             <figure class="grafico">
-                <img id="grafico-subgrupos" class="grafico__imagem" src="assets/subgrupos.png" alt="Distribuição dos Subgrupos Moleculares">
+                <img id="grafico-subgrupos" class="grafico__imagem" src="assets/subgrupos.png" alt="Gráfico de barras: Luminal A é o subtipo mais frequente, com 139 das 305 pacientes (45,6%), seguido de Triplo Negativo (84), Luminal B (55) e HER2 Enriquecido (27)." aria-describedby="descricao-subgrupos">
                 <button type="button" class="grafico__ampliar" aria-describedby="legenda-subgrupos">Ampliar gráfico</button>
                 <figcaption id="legenda-subgrupos" class="grafico__legenda">Figura 3: Representação da volumetria de pacientes por subtipo molecular.</figcaption>
             </figure>
             <details class="grafico__dados">
                 <summary>Ver dados do gráfico</summary>
+                <p id="descricao-subgrupos" class="grafico__descricao">Barras horizontais com o número de pacientes de cada subtipo molecular, em ordem decrescente: Luminal A, 139 pacientes (45,6%); Triplo Negativo, 84 (27,5%); Luminal B, 55 (18,0%); HER2 Enriquecido, 27 (8,9%). O total é de 305 pacientes.</p>
                 <table id="tabela-subgrupos" class="tabela-dados">
                     <caption>Pacientes por subtipo molecular</caption>
                     <thead>
@@ -236,12 +239,13 @@
             <p>Por fim, a análise cruza a idade das pacientes com a eficácia do tratamento neoadjuvante. O objetivo desta visualização é identificar padrões que indiquem se pacientes mais jovens ou mais velhas apresentam variações significativas na taxa de resposta à intervenção clínica inicial.</p>
 
             <figure class="grafico">
-                <img id="grafico-resposta" class="grafico__imagem" src="assets/taxa_resposta.png" alt="Taxa de Resposta por Idade">
+                <img id="grafico-resposta" class="grafico__imagem" src="assets/taxa_resposta.png" alt="Gráficos de resposta ao tratamento: HER2 Enriquecido tem a maior taxa de resposta (55,0%) e Luminal A a menor (10,6%); quem respondeu tem idade mediana menor, 46,9 contra 49,2 anos." aria-describedby="descricao-resposta">
                 <button type="button" class="grafico__ampliar" aria-describedby="legenda-resposta">Ampliar gráfico</button>
                 <figcaption id="legenda-resposta" class="grafico__legenda">Figura 4: Distribuição etária segmentada pela taxa de resposta ao tratamento neoadjuvante.</figcaption>
             </figure>
             <details class="grafico__dados">
                 <summary>Ver dados do gráfico</summary>
+                <p id="descricao-resposta" class="grafico__descricao">A figura tem dois painéis. À esquerda, barras comparam, em cada subtipo molecular, as pacientes que não responderam e as que responderam ao tratamento neoadjuvante, considerando as 269 pacientes com resposta registrada como 0 ou 1. As taxas de resposta são de 10,6% em Luminal A, 33,3% em Luminal B, 55,0% em HER2 Enriquecido e 31,9% em Triplo Negativo, com 23,4% no total. À direita, a idade é comparada entre os dois desfechos: a mediana é de 49,2 anos entre as que não responderam e de 46,9 anos entre as que responderam.</p>
                 <table id="tabela-resposta" class="tabela-dados">
                     <caption>Resposta ao tratamento neoadjuvante por subtipo molecular</caption>
                     <thead>
