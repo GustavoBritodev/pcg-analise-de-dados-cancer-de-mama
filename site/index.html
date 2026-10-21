@@ -45,6 +45,58 @@
                 <button type="button" class="grafico__ampliar" aria-describedby="legenda-idade">Ampliar gráfico</button>
                 <figcaption id="legenda-idade" class="grafico__legenda">Figura 1: Boxplot relacionando a idade da paciente ao estágio do tumor (T).</figcaption>
             </figure>
+            <details class="grafico__dados">
+                <summary>Ver dados do gráfico</summary>
+                <table id="tabela-idade" class="tabela-dados">
+                    <caption>Idade das pacientes por estágio do tumor (T), em anos</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Estágio do tumor</th>
+                            <th scope="col">Pacientes</th>
+                            <th scope="col">1º quartil</th>
+                            <th scope="col">Mediana</th>
+                            <th scope="col">3º quartil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">T1</th>
+                            <td>67</td>
+                            <td>42,1</td>
+                            <td>48,1</td>
+                            <td>59,3</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">T2</th>
+                            <td>169</td>
+                            <td>41,5</td>
+                            <td>48,0</td>
+                            <td>56,2</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">T3</th>
+                            <td>54</td>
+                            <td>43,5</td>
+                            <td>50,2</td>
+                            <td>58,4</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">T4</th>
+                            <td>15</td>
+                            <td>41,3</td>
+                            <td>45,5</td>
+                            <td>52,8</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Todas</th>
+                            <td>305</td>
+                            <td>42,0</td>
+                            <td>48,1</td>
+                            <td>56,8</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </details>
         </section>
 
         <section id="secao-padroes" class="cartao" aria-labelledby="titulo-padroes">
@@ -57,6 +109,70 @@
                 <button type="button" class="grafico__ampliar" aria-describedby="legenda-estadiamento">Ampliar gráfico</button>
                 <figcaption id="legenda-estadiamento" class="grafico__legenda">Figura 2: Gráfico de violino demonstrando a distribuição dos linfonodos acometidos por tamanho do tumor.</figcaption>
             </figure>
+            <details class="grafico__dados">
+                <summary>Ver dados do gráfico</summary>
+                <table id="tabela-estadiamento" class="tabela-dados">
+                    <caption>Pacientes por estágio do tumor (T) e dos linfonodos (N)</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Estágio do tumor</th>
+                            <th scope="col">N0</th>
+                            <th scope="col">N1</th>
+                            <th scope="col">N2</th>
+                            <th scope="col">N3</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">N1 a N3 (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">T1</th>
+                            <td>26</td>
+                            <td>31</td>
+                            <td>8</td>
+                            <td>2</td>
+                            <td>67</td>
+                            <td>61,2</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">T2</th>
+                            <td>86</td>
+                            <td>63</td>
+                            <td>12</td>
+                            <td>8</td>
+                            <td>169</td>
+                            <td>49,1</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">T3</th>
+                            <td>11</td>
+                            <td>27</td>
+                            <td>10</td>
+                            <td>6</td>
+                            <td>54</td>
+                            <td>79,6</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">T4</th>
+                            <td>1</td>
+                            <td>8</td>
+                            <td>1</td>
+                            <td>5</td>
+                            <td>15</td>
+                            <td>93,3</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Total</th>
+                            <td>124</td>
+                            <td>129</td>
+                            <td>31</td>
+                            <td>21</td>
+                            <td>305</td>
+                            <td>59,3</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </details>
         </section>
 
         <section id="secao-subgrupos" class="cartao" aria-labelledby="titulo-subgrupos">
@@ -73,6 +189,46 @@
                 <button type="button" class="grafico__ampliar" aria-describedby="legenda-subgrupos">Ampliar gráfico</button>
                 <figcaption id="legenda-subgrupos" class="grafico__legenda">Figura 3: Representação da volumetria de pacientes por subtipo molecular.</figcaption>
             </figure>
+            <details class="grafico__dados">
+                <summary>Ver dados do gráfico</summary>
+                <table id="tabela-subgrupos" class="tabela-dados">
+                    <caption>Pacientes por subtipo molecular</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Subtipo molecular</th>
+                            <th scope="col">Pacientes</th>
+                            <th scope="col">Percentual (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Luminal A</th>
+                            <td>139</td>
+                            <td>45,6</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Triplo Negativo</th>
+                            <td>84</td>
+                            <td>27,5</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Luminal B</th>
+                            <td>55</td>
+                            <td>18,0</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">HER2 Enriquecido</th>
+                            <td>27</td>
+                            <td>8,9</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Total</th>
+                            <td>305</td>
+                            <td>100,0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </details>
         </section>
 
         <section id="secao-resposta" class="cartao" aria-labelledby="titulo-resposta">
@@ -84,6 +240,86 @@
                 <button type="button" class="grafico__ampliar" aria-describedby="legenda-resposta">Ampliar gráfico</button>
                 <figcaption id="legenda-resposta" class="grafico__legenda">Figura 4: Distribuição etária segmentada pela taxa de resposta ao tratamento neoadjuvante.</figcaption>
             </figure>
+            <details class="grafico__dados">
+                <summary>Ver dados do gráfico</summary>
+                <table id="tabela-resposta" class="tabela-dados">
+                    <caption>Resposta ao tratamento neoadjuvante por subtipo molecular</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Subtipo molecular</th>
+                            <th scope="col">Não respondeu</th>
+                            <th scope="col">Respondeu</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Taxa de resposta (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Luminal A</th>
+                            <td>118</td>
+                            <td>14</td>
+                            <td>132</td>
+                            <td>10,6</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Luminal B</th>
+                            <td>30</td>
+                            <td>15</td>
+                            <td>45</td>
+                            <td>33,3</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">HER2 Enriquecido</th>
+                            <td>9</td>
+                            <td>11</td>
+                            <td>20</td>
+                            <td>55,0</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Triplo Negativo</th>
+                            <td>49</td>
+                            <td>23</td>
+                            <td>72</td>
+                            <td>31,9</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Total</th>
+                            <td>206</td>
+                            <td>63</td>
+                            <td>269</td>
+                            <td>23,4</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table id="tabela-resposta-idade" class="tabela-dados">
+                    <caption>Idade das pacientes por desfecho clínico, em anos</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Desfecho</th>
+                            <th scope="col">Pacientes</th>
+                            <th scope="col">1º quartil</th>
+                            <th scope="col">Mediana</th>
+                            <th scope="col">3º quartil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Não respondeu</th>
+                            <td>206</td>
+                            <td>42,9</td>
+                            <td>49,2</td>
+                            <td>59,0</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Respondeu</th>
+                            <td>63</td>
+                            <td>38,3</td>
+                            <td>46,9</td>
+                            <td>54,8</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </details>
         </section>
 
     </main>

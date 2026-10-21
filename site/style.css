@@ -124,6 +124,48 @@ ul {
     margin: 0.5rem 0 1rem;
 }
 
+.grafico__dados {
+    margin: -1rem 0 2rem;
+    padding: 0.25rem;
+    overflow-x: auto;
+}
+
+.grafico__dados summary {
+    color: var(--secondary);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.tabela-dados {
+    width: 100%;
+    margin-top: 1rem;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.tabela-dados caption {
+    margin-bottom: 0.5rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.tabela-dados th,
+.tabela-dados td {
+    padding: 0.4rem 0.6rem;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: right;
+}
+
+.tabela-dados thead th {
+    background-color: #edf2f7;
+    color: var(--primary);
+}
+
+.tabela-dados th:first-child {
+    text-align: left;
+}
+
 .grafico__ampliar,
 .dialogo-grafico__fechar {
     font: inherit;
@@ -252,5 +294,18 @@ ul {
     .grafico {
         padding: 0.5rem;
         margin: 1.5rem 0;
+    }
+
+    .tabela-dados {
+        font-size: 0.85rem;
+    }
+
+    .tabela-dados caption {
+        max-width: calc(100vw - 6rem);
+    }
+
+    .tabela-dados th,
+    .tabela-dados td {
+        padding: 0.3rem 0.4rem;
     }
 }
