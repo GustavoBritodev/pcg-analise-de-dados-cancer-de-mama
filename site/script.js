@@ -13,7 +13,7 @@ function abrirGrafico(evento) {
     imagemAmpliada.alt = imagemOriginal.alt;
     imagemAmpliada.className = 'dialogo-grafico__imagem';
     areaDialogo.replaceChildren(imagemAmpliada);
-    tituloDialogo.textContent = figura.querySelector('figcaption').textContent;
+    tituloDialogo.replaceChildren(...figura.querySelector('figcaption').cloneNode(true).childNodes);
     dialogo.showModal();
     botaoFechar.focus();
 }
