@@ -35,6 +35,42 @@ header p {
     margin-top: 1rem;
 }
 
+.sumario {
+    margin-top: 0.5rem;
+}
+
+.sumario__lista {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+}
+
+.sumario__lista li {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.sumario__link {
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.sumario__link:hover,
+.sumario__link:focus-visible {
+    border-bottom-color: white;
+}
+
+.sumario__link:focus-visible,
+.rodape a:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
 .conteudo {
     max-width: 900px;
     margin: 0 auto;
@@ -117,6 +153,14 @@ ul {
 
     header p {
         font-size: 1rem;
+    }
+
+    .sumario__lista {
+        gap: 0.25rem 1rem;
+    }
+
+    .sumario__lista li {
+        font-size: 0.95rem;
     }
 
     .conteudo {
