@@ -27,10 +27,10 @@
 
         <section id="secao-objetivo" class="cartao" aria-labelledby="titulo-objetivo">
             <h2 id="titulo-objetivo">1. Objetivo e Preparação dos Dados</h2>
-            <p>O objetivo desta Análise Exploratória de Dados (EDA) é avaliar padrões clínicos e moleculares em pacientes com câncer de mama. Durante a etapa de engenharia de dados, os seguintes tratamentos foram aplicados:</p>
+            <p>O objetivo desta Análise Exploratória de Dados (<abbr title="Análise Exploratória de Dados">EDA</abbr>) é avaliar padrões clínicos e moleculares em pacientes com câncer de mama. Durante a etapa de engenharia de dados, os seguintes tratamentos foram aplicados:</p>
             <ul>
-                <li><strong>Tratamento de Inconsistências:</strong> Valores textuais como 'NA', 'NC', 'NP' e 'x' foram convertidos rigorosamente para nulos (NaN).</li>
-                <li><strong>Qualidade dos Dados:</strong> Colunas com 100% de ausência de dados (como Unnamed: 98 e Unnamed: 67) foram descartadas, bem como linhas com dados faltantes em variáveis críticas (idade, estadiamento T/N e subtipo molecular).</li>
+                <li><strong>Tratamento de Inconsistências:</strong> Valores textuais como 'NA', 'NC', 'NP' e 'x' foram convertidos rigorosamente para nulos (<abbr title="Not a Number">NaN</abbr>).</li>
+                <li><strong>Qualidade dos Dados:</strong> Colunas com 100% de ausência de dados (como Unnamed: 98 e Unnamed: 67) foram descartadas, bem como linhas com dados faltantes em variáveis críticas (idade, estadiamento <abbr title="Tumor primário: tamanho e extensão do tumor">T</abbr>/<abbr title="Linfonodos regionais acometidos">N</abbr> e subtipo molecular).</li>
                 <li><strong>Engenharia de Atributos:</strong> A métrica de idade das pacientes foi convertida de dias para anos para facilitar a interpretabilidade.</li>
             </ul>
             <h3 id="titulo-glossario">Glossário</h3>
@@ -55,12 +55,12 @@
         <section id="secao-panorama" class="cartao" aria-labelledby="titulo-panorama">
             <h2 id="titulo-panorama">2. Panorama Demográfico</h2>
             <p>A análise da base populacional limpa revelou que a idade média das pacientes diagnosticadas é de aproximadamente <strong>49,52 anos</strong> (mediana de 48,09 anos, com desvio padrão de 11,38 anos).</p>
-            <p>O gráfico abaixo cruza a distribuição etária com o estágio de gravidade do tumor (T), permitindo inferir visualmente se há uma tendência de diagnóstico tardio baseada na idade da paciente.</p>
+            <p>O gráfico abaixo cruza a distribuição etária com o estágio de gravidade do tumor (<abbr title="Tumor primário: tamanho e extensão do tumor">T</abbr>), permitindo inferir visualmente se há uma tendência de diagnóstico tardio baseada na idade da paciente.</p>
 
             <figure class="grafico">
                 <img id="grafico-idade" class="grafico__imagem" src="assets/idade.png" alt="Gráfico de idade das pacientes: metade tem entre 42,0 e 56,8 anos, e a mediana por estágio do tumor varia pouco, de 45,5 anos em T4 a 50,2 anos em T3." aria-describedby="descricao-idade">
                 <button type="button" class="grafico__ampliar" aria-describedby="legenda-idade">Ampliar gráfico</button>
-                <figcaption id="legenda-idade" class="grafico__legenda">Figura 1: Boxplot relacionando a idade da paciente ao estágio do tumor (T).</figcaption>
+                <figcaption id="legenda-idade" class="grafico__legenda">Figura 1: Boxplot relacionando a idade da paciente ao estágio do tumor (<abbr title="Tumor primário: tamanho e extensão do tumor">T</abbr>).</figcaption>
             </figure>
             <details class="grafico__dados">
                 <summary>Ver dados do gráfico</summary>
@@ -119,7 +119,7 @@
 
         <section id="secao-padroes" class="cartao" aria-labelledby="titulo-padroes">
             <h2 id="titulo-padroes">3. Identificação de Padrões Clínicos</h2>
-            <p>Um dos aspectos mais críticos no estadiamento do câncer é compreender como o crescimento do tumor afeta o sistema linfático. Analisamos a correlação entre o crescimento físico do tumor primário (T) e o risco de espalhamento da doença para os linfonodos axilares (N).</p>
+            <p>Um dos aspectos mais críticos no estadiamento do câncer é compreender como o crescimento do tumor afeta o sistema linfático. Analisamos a correlação entre o crescimento físico do tumor primário (<abbr title="Tumor primário: tamanho e extensão do tumor">T</abbr>) e o risco de espalhamento da doença para os linfonodos axilares (<abbr title="Linfonodos regionais acometidos">N</abbr>).</p>
             <p>O gráfico de violino estruturado abaixo investiga a proporção exata de como o aumento de volume tumoral altera a probabilidade de disseminação linfática.</p>
 
             <figure class="grafico">
@@ -199,8 +199,8 @@
             <p>Para definir linhas terapêuticas adequadas, as pacientes foram agrupadas de forma heterogênea baseando-se na presença de receptores hormonais e no nível de agressividade:</p>
             <ul>
                 <li><strong>Luminal A e B:</strong> Tumores alimentados por hormônios (Estrogênio/Progesterona). O subtipo A tem crescimento lento, enquanto o B é mais agressivo.</li>
-                <li><strong>HER2 Enriquecido:</strong> Tumores de crescimento acelerado devido ao excesso da proteína HER2, porém com alta responsividade a terapias-alvo.</li>
-                <li><strong>Triplo Negativo:</strong> Desprovidos de receptores hormonais e HER2. É o grupo mais agressivo devido à dependência exclusiva da quimioterapia tradicional.</li>
+                <li><strong><abbr title="Receptor 2 do fator de crescimento epidérmico humano">HER2</abbr> Enriquecido:</strong> Tumores de crescimento acelerado devido ao excesso da proteína <abbr title="Receptor 2 do fator de crescimento epidérmico humano">HER2</abbr>, porém com alta responsividade a terapias-alvo.</li>
+                <li><strong>Triplo Negativo:</strong> Desprovidos de receptores hormonais e <abbr title="Receptor 2 do fator de crescimento epidérmico humano">HER2</abbr>. É o grupo mais agressivo devido à dependência exclusiva da quimioterapia tradicional.</li>
             </ul>
 
             <figure class="grafico">
@@ -210,7 +210,7 @@
             </figure>
             <details class="grafico__dados">
                 <summary>Ver dados do gráfico</summary>
-                <p id="descricao-subgrupos" class="grafico__descricao">Barras horizontais com o número de pacientes de cada subtipo molecular, em ordem decrescente: Luminal A, 139 pacientes (45,6%); Triplo Negativo, 84 (27,5%); Luminal B, 55 (18,0%); HER2 Enriquecido, 27 (8,9%). O total é de 305 pacientes.</p>
+                <p id="descricao-subgrupos" class="grafico__descricao">Barras horizontais com o número de pacientes de cada subtipo molecular, em ordem decrescente: Luminal A, 139 pacientes (45,6%); Triplo Negativo, 84 (27,5%); Luminal B, 55 (18,0%); <abbr title="Receptor 2 do fator de crescimento epidérmico humano">HER2</abbr> Enriquecido, 27 (8,9%). O total é de 305 pacientes.</p>
                 <table id="tabela-subgrupos" class="tabela-dados">
                     <caption>Pacientes por subtipo molecular</caption>
                     <thead>
@@ -262,7 +262,7 @@
             </figure>
             <details class="grafico__dados">
                 <summary>Ver dados do gráfico</summary>
-                <p id="descricao-resposta" class="grafico__descricao">A figura tem dois painéis. À esquerda, barras comparam, em cada subtipo molecular, as pacientes que não responderam e as que responderam ao tratamento neoadjuvante, considerando as 269 pacientes com resposta registrada como 0 ou 1. As taxas de resposta são de 10,6% em Luminal A, 33,3% em Luminal B, 55,0% em HER2 Enriquecido e 31,9% em Triplo Negativo, com 23,4% no total. À direita, a idade é comparada entre os dois desfechos: a mediana é de 49,2 anos entre as que não responderam e de 46,9 anos entre as que responderam.</p>
+                <p id="descricao-resposta" class="grafico__descricao">A figura tem dois painéis. À esquerda, barras comparam, em cada subtipo molecular, as pacientes que não responderam e as que responderam ao tratamento neoadjuvante, considerando as 269 pacientes com resposta registrada como 0 ou 1. As taxas de resposta são de 10,6% em Luminal A, 33,3% em Luminal B, 55,0% em <abbr title="Receptor 2 do fator de crescimento epidérmico humano">HER2</abbr> Enriquecido e 31,9% em Triplo Negativo, com 23,4% no total. À direita, a idade é comparada entre os dois desfechos: a mediana é de 49,2 anos entre as que não responderam e de 46,9 anos entre as que responderam.</p>
                 <table id="tabela-resposta" class="tabela-dados">
                     <caption>Resposta ao tratamento neoadjuvante por subtipo molecular</caption>
                     <thead>
