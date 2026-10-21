@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise Exploratória: Duke Breast Cancer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header id="topo">
+        <h1>Estudo de Caso: <span lang="en">Duke Breast Cancer</span></h1>
+        <p>Análise de características clínicas, demográficas e preditores de resposta ao tratamento neoadjuvante.</p>
+        <nav class="sumario" aria-label="Sumário">
+            <ul class="sumario__lista">
+                <li><a class="sumario__link" href="#secao-objetivo">Objetivo e preparação dos dados</a></li>
+                <li><a class="sumario__link" href="#secao-panorama">Panorama demográfico</a></li>
+                <li><a class="sumario__link" href="#secao-padroes">Padrões clínicos</a></li>
+                <li><a class="sumario__link" href="#secao-subgrupos">Subgrupos moleculares</a></li>
+                <li><a class="sumario__link" href="#secao-resposta">Taxa de resposta</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="conteudo">
+
+        <section id="secao-objetivo" class="cartao" aria-labelledby="titulo-objetivo">
+            <h2 id="titulo-objetivo">1. Objetivo e Preparação dos Dados</h2>
+            <p>O objetivo desta Análise Exploratória de Dados (<abbr title="Análise Exploratória de Dados">EDA</abbr>) é avaliar padrões clínicos e moleculares em pacientes com câncer de mama. Durante a etapa de engenharia de dados, os seguintes tratamentos foram aplicados:</p>
+            <ul>
+                <li><strong>Tratamento de Inconsistências:</strong> Valores textuais como 'NA', 'NC', 'NP' e 'x' foram convertidos rigorosamente para nulos (<abbr lang="en" title="Not a Number">NaN</abbr>).</li>
+                <li><strong>Qualidade dos Dados:</strong> Colunas com 100% de ausência de dados (como <span lang="en">Unnamed: 98</span> e <span lang="en">Unnamed: 67</span>) foram descartadas, bem como linhas com dados faltantes em variáveis críticas (idade, estadiamento <abbr title="Tumor primário: tamanho e extensão do tumor">T</abbr>/<abbr title="Linfonodos regionais acometidos">N</abbr> e subtipo molecular).</li>
+                <li><strong>Engenharia de Atributos:</strong> A métrica de idade das pacientes foi convertida de dias para anos para facilitar a interpretabilidade.</li>
+            </ul>
+            <h3 id="titulo-glossario">Glossário</h3>
+            <dl class="glossario">
+                <dt><dfn lang="en">NaN</dfn></dt>
+                <dd>marcador usado pela biblioteca Pandas para indicar um valor ausente. Neste estudo, os códigos "NA", "NC", "NP" e "x" do conjunto de dados foram convertidos em <abbr lang="en" title="Not a Number">NaN</abbr>.</dd>
+                <dt><dfn><span lang="en">Unnamed: 98</span> e <span lang="en">Unnamed: 67</span></dfn></dt>
+                <dd>nomes que o Pandas dá automaticamente a colunas sem título no arquivo original. Essas duas colunas não têm nenhum valor preenchido (100% de ausência).</dd>
+                <dt><dfn>Neoadjuvante</dfn></dt>
+                <dd>tratamento sistêmico, como a quimioterapia, aplicado antes da cirurgia, com o objetivo de reduzir o tumor. A resposta a esse tratamento é avaliada no tecido retirado na cirurgia.</dd>
+                <dt><dfn>Estadiamento T/N</dfn></dt>
+                <dd>parte do sistema <abbr title="Tumor, Linfonodos e Metástase">TNM</abbr> de classificação do câncer. O T descreve o tamanho e a extensão do tumor primário, de T1 (menor) a T4 (maior). O N descreve o comprometimento dos linfonodos regionais, de N0 (nenhum linfonodo acometido) a N3 (maior comprometimento).</dd>
+                <dt><dfn lang="en">Boxplot</dfn></dt>
+                <dd>gráfico que resume uma distribuição numérica. A caixa vai do primeiro ao terceiro quartil, onde estão os 50% centrais dos valores; a linha interna marca a mediana; as hastes mostram a dispersão dos demais valores, e pontos isolados indicam valores atípicos.</dd>
+                <dt><dfn>Gráfico de violino</dfn></dt>
+                <dd>gráfico que combina um resumo por quartis com uma curva de densidade espelhada. Quanto mais largo o violino em determinada altura, mais pacientes se concentram naquele valor. Neste site, as linhas tracejadas internas marcam os quartis.</dd>
+                <dt><dfn>HER2</dfn></dt>
+                <dd>sigla, em inglês, do receptor 2 do fator de crescimento epidérmico humano, uma proteína da superfície das células. Tumores com excesso dessa proteína formam o subtipo <abbr title="Receptor 2 do fator de crescimento epidérmico humano">HER2</abbr> Enriquecido e podem ser tratados com terapias-alvo dirigidas a ela.</dd>
+            </dl>
+        </section>
+
+        <section id="secao-panorama" class="cartao" aria-labelledby="titulo-panorama">
+            <h2 id="titulo-panorama">2. Panorama Demográfico</h2>
+            <p>A análise da base populacional limpa revelou que a idade média das pacientes diagnosticadas é de aproximadamente <strong>49,52 anos</strong> (mediana de 48,09 anos, com desvio padrão de 11,38 anos).</p>
+            <p>O gráfico abaixo cruza a distribuição etária com o estágio de gravidade do tumor (<abbr title="Tumor primário: tamanho e extensão do tumor">T</abbr>), permitindo inferir visualmente se há uma tendência de diagnóstico tardio baseada na idade da paciente.</p>
+
+            <figure class="grafico">
+                <img id="grafico-idade" class="grafico__imagem" src="assets/idade.png" alt="Gráfico de idade das pacientes: metade tem entre 42,0 e 56,8 anos, e a mediana por estágio do tumor varia pouco, de 45,5 anos em T4 a 50,2 anos em T3." aria-describedby="descricao-idade">
+                <button type="button" class="grafico__ampliar" aria-describedby="legenda-idade">Ampliar gráfico</button>
+                <figcaption id="legenda-idade" class="grafico__legenda">Figura 1: <span lang="en">Boxplot</span> relacionando a idade da paciente ao estágio do tumor (<abbr title="Tumor primário: tamanho e extensão do tumor">T</abbr>).</figcaption>
+            </figure>
+            <details class="grafico__dados">
+                <summary>Ver dados do gráfico</summary>
+                <p id="descricao-idade" class="grafico__descricao">A figura tem dois painéis. À esquerda, um histograma da idade das 305 pacientes analisadas, com curva de densidade: a mediana é de 48,1 anos e metade das pacientes tem entre 42,0 e 56,8 anos. À direita, a idade é comparada entre os estágios do tumor primário, de T1 a T4: as medianas são 48,1, 48,0, 50,2 e 45,5 anos, e as caixas se sobrepõem, sem indicar que pacientes mais jovens ou mais velhas cheguem ao diagnóstico em estágios mais avançados.</p>
+                <div class="tabela-rolavel" role="region" tabindex="0" aria-labelledby="legenda-tabela-idade">
+                    <table id="tabela-idade" class="tabela-dados">
+                        <caption id="legenda-tabela-idade">Idade das pacientes por estágio do tumor (<abbr title="Tumor primário: tamanho e extensão do tumor">T</abbr>), em anos</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Estágio do tumor</th>
+                                <th scope="col">Pacientes</th>
+                                <th scope="col">1º quartil</th>
+                                <th scope="col">Mediana</th>
+                                <th scope="col">3º quartil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">T1</th>
+                                <td>67</td>
+                                <td>42,1</td>
+                                <td>48,1</td>
+                                <td>59,3</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">T2</th>
+                                <td>169</td>
+                                <td>41,5</td>
+                                <td>48,0</td>
+                                <td>56,2</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">T3</th>
+                                <td>54</td>
+                                <td>43,5</td>
+                                <td>50,2</td>
+                                <td>58,4</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">T4</th>
+                                <td>15</td>
+                                <td>41,3</td>
+                                <td>45,5</td>
+                                <td>52,8</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Todas</th>
+                                <td>305</td>
+                                <td>42,0</td>
+                                <td>48,1</td>
+                                <td>56,8</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </details>
+        </section>
+
+        <section id="secao-padroes" class="cartao" aria-labelledby="titulo-padroes">
+            <h2 id="titulo-padroes">3. Identificação de Padrões Clínicos</h2>
+            <p>Um dos aspectos mais críticos no estadiamento do câncer é compreender como o crescimento do tumor afeta o sistema linfático. Analisamos a correlação entre o crescimento físico do tumor primário (<abbr title="Tumor primário: tamanho e extensão do tumor">T</abbr>) e o risco de espalhamento da doença para os linfonodos axilares (<abbr title="Linfonodos regionais acometidos">N</abbr>).</p>
+            <p>O gráfico de violino estruturado abaixo investiga a proporção exata de como o aumento de volume tumoral altera a probabilidade de disseminação linfática.</p>
+
+            <figure class="grafico">
+                <img id="grafico-estadiamento" class="grafico__imagem" src="assets/estadiamento.png" alt="Gráfico de violino: tumores maiores concentram mais linfonodos acometidos, com 79,6% dos casos T3 e 93,3% dos T4 em N1 ou acima, contra 61,2% em T1 e 49,1% em T2." aria-describedby="descricao-estadiamento">
+                <button type="button" class="grafico__ampliar" aria-describedby="legenda-estadiamento">Ampliar gráfico</button>
+                <figcaption id="legenda-estadiamento" class="grafico__legenda">Figura 2: Gráfico de violino demonstrando a distribuição dos linfonodos acometidos por tamanho do tumor.</figcaption>
+            </figure>
+            <details class="grafico__dados">
+                <summary>Ver dados do gráfico</summary>
+                <p id="descricao-estadiamento" class="grafico__descricao">O eixo horizontal mostra o estágio do tumor primário, de T1 a T4, e o eixo vertical mostra o estágio dos linfonodos, de N0 a N3, crescendo de baixo para cima. Em T1 e T2, a maior parte das pacientes está em N0 ou N1. Em T3, o volume se concentra em N1 e se estende até N3. Em T4, 8 das 15 pacientes estão em N1 e 5 estão em N3. A proporção de pacientes com linfonodos acometidos (N1 a N3) é de 61,2% em T1, 49,1% em T2, 79,6% em T3 e 93,3% em T4.</p>
+                <div class="tabela-rolavel" role="region" tabindex="0" aria-labelledby="legenda-tabela-estadiamento">
+                    <table id="tabela-estadiamento" class="tabela-dados">
+                        <caption id="legenda-tabela-estadiamento">Pacientes por estágio do tumor (<abbr title="Tumor primário: tamanho e extensão do tumor">T</abbr>) e dos linfonodos (<abbr title="Linfonodos regionais acometidos">N</abbr>)</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Estágio do tumor</th>
+                                <th scope="col">N0</th>
+                                <th scope="col">N1</th>
+                                <th scope="col">N2</th>
+                                <th scope="col">N3</th>
+                                <th scope="col">Total</th>
+                                <th scope="col">N1 a N3 (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">T1</th>
+                                <td>26</td>
+                                <td>31</td>
+                                <td>8</td>
+                                <td>2</td>
+                                <td>67</td>
+                                <td>61,2</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">T2</th>
+                                <td>86</td>
+                                <td>63</td>
+                                <td>12</td>
+                                <td>8</td>
+                                <td>169</td>
+                                <td>49,1</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">T3</th>
+                                <td>11</td>
+                                <td>27</td>
+                                <td>10</td>
+                                <td>6</td>
+                                <td>54</td>
+                                <td>79,6</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">T4</th>
+                                <td>1</td>
+                                <td>8</td>
+                                <td>1</td>
+                                <td>5</td>
+                                <td>15</td>
+                                <td>93,3</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Total</th>
+                                <td>124</td>
+                                <td>129</td>
+                                <td>31</td>
+                                <td>21</td>
+                                <td>305</td>
+                                <td>59,3</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </details>
+        </section>
+
+        <section id="secao-subgrupos" class="cartao" aria-labelledby="titulo-subgrupos">
+            <h2 id="titulo-subgrupos">4. Subgrupos Moleculares (Tipos de Câncer)</h2>
+            <p>Para definir linhas terapêuticas adequadas, as pacientes foram agrupadas de forma heterogênea baseando-se na presença de receptores hormonais e no nível de agressividade:</p>
+            <ul>
+                <li><strong>Luminal A e B:</strong> Tumores alimentados por hormônios (Estrogênio/Progesterona). O subtipo A tem crescimento lento, enquanto o B é mais agressivo.</li>
+                <li><strong><abbr title="Receptor 2 do fator de crescimento epidérmico humano">HER2</abbr> Enriquecido:</strong> Tumores de crescimento acelerado devido ao excesso da proteína <abbr title="Receptor 2 do fator de crescimento epidérmico humano">HER2</abbr>, porém com alta responsividade a terapias-alvo.</li>
+                <li><strong>Triplo Negativo:</strong> Desprovidos de receptores hormonais e <abbr title="Receptor 2 do fator de crescimento epidérmico humano">HER2</abbr>. É o grupo mais agressivo devido à dependência exclusiva da quimioterapia tradicional.</li>
+            </ul>
+
+            <figure class="grafico">
+                <img id="grafico-subgrupos" class="grafico__imagem" src="assets/subgrupos.png" alt="Gráfico de barras: Luminal A é o subtipo mais frequente, com 139 das 305 pacientes (45,6%), seguido de Triplo Negativo (84), Luminal B (55) e HER2 Enriquecido (27)." aria-describedby="descricao-subgrupos">
+                <button type="button" class="grafico__ampliar" aria-describedby="legenda-subgrupos">Ampliar gráfico</button>
+                <figcaption id="legenda-subgrupos" class="grafico__legenda">Figura 3: Representação da volumetria de pacientes por subtipo molecular.</figcaption>
+            </figure>
+            <details class="grafico__dados">
+                <summary>Ver dados do gráfico</summary>
+                <p id="descricao-subgrupos" class="grafico__descricao">Barras horizontais com o número de pacientes de cada subtipo molecular, em ordem decrescente: Luminal A, 139 pacientes (45,6%); Triplo Negativo, 84 (27,5%); Luminal B, 55 (18,0%); <abbr title="Receptor 2 do fator de crescimento epidérmico humano">HER2</abbr> Enriquecido, 27 (8,9%). O total é de 305 pacientes.</p>
+                <div class="tabela-rolavel" role="region" tabindex="0" aria-labelledby="legenda-tabela-subgrupos">
+                    <table id="tabela-subgrupos" class="tabela-dados">
+                        <caption id="legenda-tabela-subgrupos">Pacientes por subtipo molecular</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Subtipo molecular</th>
+                                <th scope="col">Pacientes</th>
+                                <th scope="col">Percentual (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Luminal A</th>
+                                <td>139</td>
+                                <td>45,6</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Triplo Negativo</th>
+                                <td>84</td>
+                                <td>27,5</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Luminal B</th>
+                                <td>55</td>
+                                <td>18,0</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><abbr title="Receptor 2 do fator de crescimento epidérmico humano">HER2</abbr> Enriquecido</th>
+                                <td>27</td>
+                                <td>8,9</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Total</th>
+                                <td>305</td>
+                                <td>100,0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </details>
+        </section>
+
+        <section id="secao-resposta" class="cartao" aria-labelledby="titulo-resposta">
+            <h2 id="titulo-resposta">5. Taxa de Resposta e Distribuição Etária</h2>
+            <p>Por fim, a análise cruza a idade das pacientes com a eficácia do tratamento neoadjuvante. O objetivo desta visualização é identificar padrões que indiquem se pacientes mais jovens ou mais velhas apresentam variações significativas na taxa de resposta à intervenção clínica inicial.</p>
+
+            <figure class="grafico">
+                <img id="grafico-resposta" class="grafico__imagem" src="assets/taxa_resposta.png" alt="Gráficos de resposta ao tratamento: HER2 Enriquecido tem a maior taxa de resposta (55,0%) e Luminal A a menor (10,6%); quem respondeu tem idade mediana menor, 46,9 contra 49,2 anos." aria-describedby="descricao-resposta">
+                <button type="button" class="grafico__ampliar" aria-describedby="legenda-resposta">Ampliar gráfico</button>
+                <figcaption id="legenda-resposta" class="grafico__legenda">Figura 4: Distribuição etária segmentada pela taxa de resposta ao tratamento neoadjuvante.</figcaption>
+            </figure>
+            <details class="grafico__dados">
+                <summary>Ver dados do gráfico</summary>
+                <p id="descricao-resposta" class="grafico__descricao">A figura tem dois painéis. À esquerda, barras comparam, em cada subtipo molecular, as pacientes que não responderam e as que responderam ao tratamento neoadjuvante, considerando as 269 pacientes com resposta registrada como 0 ou 1. As taxas de resposta são de 10,6% em Luminal A, 33,3% em Luminal B, 55,0% em <abbr title="Receptor 2 do fator de crescimento epidérmico humano">HER2</abbr> Enriquecido e 31,9% em Triplo Negativo, com 23,4% no total. À direita, a idade é comparada entre os dois desfechos: a mediana é de 49,2 anos entre as que não responderam e de 46,9 anos entre as que responderam.</p>
+                <div class="tabela-rolavel" role="region" tabindex="0" aria-labelledby="legenda-tabela-resposta">
+                    <table id="tabela-resposta" class="tabela-dados">
+                        <caption id="legenda-tabela-resposta">Resposta ao tratamento neoadjuvante por subtipo molecular</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Subtipo molecular</th>
+                                <th scope="col">Não respondeu</th>
+                                <th scope="col">Respondeu</th>
+                                <th scope="col">Total</th>
+                                <th scope="col">Taxa de resposta (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Luminal A</th>
+                                <td>118</td>
+                                <td>14</td>
+                                <td>132</td>
+                                <td>10,6</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Luminal B</th>
+                                <td>30</td>
+                                <td>15</td>
+                                <td>45</td>
+                                <td>33,3</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><abbr title="Receptor 2 do fator de crescimento epidérmico humano">HER2</abbr> Enriquecido</th>
+                                <td>9</td>
+                                <td>11</td>
+                                <td>20</td>
+                                <td>55,0</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Triplo Negativo</th>
+                                <td>49</td>
+                                <td>23</td>
+                                <td>72</td>
+                                <td>31,9</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Total</th>
+                                <td>206</td>
+                                <td>63</td>
+                                <td>269</td>
+                                <td>23,4</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tabela-rolavel" role="region" tabindex="0" aria-labelledby="legenda-tabela-resposta-idade">
+                    <table id="tabela-resposta-idade" class="tabela-dados">
+                        <caption id="legenda-tabela-resposta-idade">Idade das pacientes por desfecho clínico, em anos</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Desfecho</th>
+                                <th scope="col">Pacientes</th>
+                                <th scope="col">1º quartil</th>
+                                <th scope="col">Mediana</th>
+                                <th scope="col">3º quartil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Não respondeu</th>
+                                <td>206</td>
+                                <td>42,9</td>
+                                <td>49,2</td>
+                                <td>59,0</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Respondeu</th>
+                                <td>63</td>
+                                <td>38,3</td>
+                                <td>46,9</td>
+                                <td>54,8</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </details>
+        </section>
+
+    </main>
+
+    <footer class="rodape">
+        <p>Autores: Arthur Santana Santos, Gustavo Martinho Santos de Brito, Miguel Dantas da Silva Vito e Pedro Henrique Valença d'Almeida.</p>
+        <p>Universidade Católica de Santos (UNISANTOS)</p>
+        <p>Pesquisa Curricularizada de Graduação, Ciência da Computação/Sistemas de Informação, 2026.</p>
+        <p>Dados: Saha et al. (2021), <span lang="en">The Cancer Imaging Archive</span>. <abbr lang="en" title="Digital Object Identifier">DOI</abbr>: <a href="https://doi.org/10.7937/TCIA.e3sv-re93">https://doi.org/10.7937/TCIA.e3sv-re93</a></p>
+        <p><a class="voltar-topo" href="#topo">Voltar ao topo</a></p>
+    </footer>
+
+    <dialog id="dialogo-grafico" class="dialogo-grafico" aria-labelledby="dialogo-grafico-titulo">
+        <p id="dialogo-grafico-titulo" class="dialogo-grafico__titulo"></p>
+        <button type="button" class="dialogo-grafico__fechar">Fechar</button>
+        <div class="dialogo-grafico__area" tabindex="0" role="region" aria-label="Gráfico ampliado"></div>
+    </dialog>
+
+</body>
+</html>
