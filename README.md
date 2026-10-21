@@ -1,8 +1,12 @@
-# PCG: Análise Exploratória, Modelagem e Storytelling com Dados — Estudo de Caso: Duke Breast Cancer
+# PCG: Análise Exploratória, Modelagem e Storytelling com Dados (Estudo de Caso: Duke Breast Cancer)
 
-Este repositório contém o pipeline completo de Análise Exploratória de Dados (EDA) e Estatística Descritiva desenvolvido para a **Pesquisa Curricularizada de Graduação (PCG)** do curso de Ciência da Computação / Sistemas de Informação da Universidade Católica de Santos. 
+Este repositório contém o pipeline completo de Análise Exploratória de Dados (EDA) e Estatística Descritiva desenvolvido para a **Pesquisa Curricularizada de Graduação (PCG)** do curso de Ciência da Computação / Sistemas de Informação da Universidade Católica de Santos, além do site que apresenta os resultados.
 
 O objetivo principal da pesquisa é analisar dados clínicos, demográficos e moleculares do ecossistema de pacientes do estudo *Duke Breast Cancer*, mapeando padrões de comportamento da doença e identificando fatores preditivos para o sucesso do tratamento neoadjuvante.
+
+**Site publicado:** https://pcgeda-cancer-de-mama.netlify.app/
+
+**Dados:** Saha et al. (2021), The Cancer Imaging Archive. DOI: https://doi.org/10.7937/TCIA.e3sv-re93
 
 ## 👥 Integrantes do Projeto
 * Arthur Santana Santos (5751215)
@@ -24,12 +28,35 @@ O projeto e as células do Jupyter Notebook foram arquitetados de forma linear p
 
 ---
 
+## 🌐 O Site
+
+O site é uma página única e estática que conta a história da análise em cinco seções, uma para cada etapa do roteiro, com os gráficos gerados pelo notebook. A página foi revisada com base em uma avaliação de Interação Humano-Computador (heurísticas de Nielsen e eMAG 3.1) e oferece:
+
+* sumário com links para as cinco seções e link para voltar ao topo;
+* botão "Ampliar gráfico", que abre cada gráfico em tamanho original numa janela de diálogo acessível por teclado;
+* painel "Ver dados do gráfico" com uma descrição detalhada e uma tabela com os principais valores de cada figura;
+* texto alternativo com a conclusão de cada gráfico;
+* glossário dos termos técnicos e marcação de siglas e de termos em inglês;
+* layout responsivo, testado em 375 px e 1280 px de largura.
+
+O site usa apenas HTML, CSS e JavaScript, sem bibliotecas. A pasta `site/` é a pasta publicada no Netlify.
+
+---
+
 ## 🏗️ Estrutura do Repositório
 
     ├── Dataset/
-    │   └── Clinical_and_Other_Features.csv  # Dataset original com dados clínicos (separador ';')
-    ├── notebook.ipynb                       # Jupyter Notebook estruturado (Código e Markdown)
-    └── README.md                            # Documentação principal do repositório
+    │   ├── Clinical_and_Other_Features.csv   # Dados clínicos usados pelo notebook (separador ';')
+    │   ├── Clinical_and_Other_Features.xlsx  # Mesma base em planilha
+    │   ├── ColumnExplanations.csv            # Explicação das colunas
+    │   └── Legend.csv                        # Legenda dos códigos
+    ├── site/
+    │   ├── index.html                        # Página do estudo de caso
+    │   ├── style.css                         # Estilos da página
+    │   ├── script.js                         # Ampliação dos gráficos
+    │   └── assets/                           # Gráficos gerados pelo notebook (PNG)
+    ├── fonte_pcg.ipynb                       # Jupyter Notebook da análise (código e texto)
+    └── README.md                             # Documentação principal do repositório
 
 ---
 
@@ -41,7 +68,7 @@ O dataset original possui strings específicas (`NA`, `NC`, `NP`, `x`) utilizada
 1. **Mapeamento de Nulos na Ingestão:** O carregamento do CSV foi parametrizado usando `na_values=['NA', 'NC', 'NP', 'x', '']` para forçar o Pandas a converter esses registros em `NaN` reais em nível de memória.
 2. **Coerção de Tipos:** A coluna de tempo/idade foi explicitamente forçada para tipo numérico via `pd.to_numeric(..., errors='coerce')` garantindo a correta aplicação das operações aritméticas.
 3. **Isolamento de Ausências Críticas:** Foram limpas via `dropna()` apenas as linhas que possuíam valores nulos nas colunas fundamentais mapeadas para as 5 perguntas de pesquisa, mantendo a integridade biológica do perfil da amostra sem imputações artificiais (como médias ou medianas arbitrárias) que distorceriam a realidade clínica.
-4. **Sanitização de Escores de Estadiamento:** Os estágios clínicos foram limpos e formatados como texto puro para evitar falhas de ordenação ou ruídos visuais (`.0`) na plotagem dos eixos gráficos.
+4. **Sanitização de Escores de Estadiamento:** Os estágios clínicos foram limpos e formatados como texto puro para evitar falhas de ordenação ou ruídos visuais (`.0`) na plotagem dos eixos gráficos. No gráfico de violino, o estágio dos linfonodos (N) é tratado como categoria ordenada, para que o eixo siga a ordem 0, 1, 2, 3.
 
 ---
 
@@ -54,13 +81,26 @@ O projeto foi construído utilizando as seguintes bibliotecas fundamentais do ec
   * *Boxplots e Violin Plots* para distribuições de idade por estágio e correlações de espalhamento linfonodal.
   * *Count plots e Bar plots agrupados (hue)* para mapear a distribuição dos subtipos moleculares e taxas de resposta ao tratamento.
 
+A última célula do notebook (`resumo-graficos`) imprime os valores resumidos de cada gráfico, que são os números usados nas tabelas e descrições do site.
+
 ---
 
-## 🚀 Como Executar o Projeto
+## 🚀 Como Executar o Notebook
 
 1. Certifique-se de ter o **Python 3.12+** instalado em sua máquina.
 2. Clone este repositório para o seu ambiente local.
 3. Certifique-se de que o arquivo `Clinical_and_Other_Features.csv` está localizado exatamente dentro da pasta `./Dataset/`.
 4. Instale as dependências necessárias executando no terminal:
-   `pip install pandas matplotlib seaborn`
-5. Abra o seu ambiente de preferência (VS Code, JupyterLab, Google Colab ou similares) e execute o arquivo `notebook.ipynb` sequencialmente da primeira à última célula.
+   `pip install pandas matplotlib seaborn nbconvert ipykernel`
+5. Abra o seu ambiente de preferência (VS Code, JupyterLab, Google Colab ou similares) e execute o arquivo `fonte_pcg.ipynb` sequencialmente da primeira à última célula. Para executar tudo pelo terminal, a partir da raiz do repositório:
+   `jupyter nbconvert --to notebook --execute --inplace fonte_pcg.ipynb`
+
+Os arquivos de `site/assets/` são as imagens geradas pelas células de gráfico do notebook.
+
+---
+
+## 💻 Como Abrir o Site Localmente
+
+* Abra o arquivo `site/index.html` diretamente no navegador; ou
+* sirva a pasta com um servidor local, a partir da raiz do repositório, e acesse http://localhost:8000:
+  `python -m http.server 8000 --directory site`
