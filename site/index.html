@@ -8,47 +8,47 @@
 </head>
 <body>
 
-    <header>
+    <header id="topo">
         <h1>Estudo de Caso: Duke Breast Cancer</h1>
         <p>Análise de características clínicas, demográficas e preditores de resposta ao tratamento neoadjuvante.</p>
     </header>
 
-    <div class="container">
-        
-        <div class="card">
-            <h2>1. Objetivo e Preparação dos Dados</h2>
+    <main class="conteudo">
+
+        <section id="secao-objetivo" class="cartao" aria-labelledby="titulo-objetivo">
+            <h2 id="titulo-objetivo">1. Objetivo e Preparação dos Dados</h2>
             <p>O objetivo desta Análise Exploratória de Dados (EDA) é avaliar padrões clínicos e moleculares em pacientes com câncer de mama. Durante a etapa de engenharia de dados, os seguintes tratamentos foram aplicados:</p>
             <ul>
                 <li><strong>Tratamento de Inconsistências:</strong> Valores textuais como 'NA', 'NC', 'NP' e 'x' foram convertidos rigorosamente para nulos (NaN).</li>
                 <li><strong>Qualidade dos Dados:</strong> Colunas com 100% de ausência de dados (como Unnamed: 98 e Unnamed: 67) foram descartadas, bem como linhas com dados faltantes em variáveis críticas (idade, estadiamento T/N e subtipo molecular).</li>
                 <li><strong>Engenharia de Atributos:</strong> A métrica de idade das pacientes foi convertida de dias para anos para facilitar a interpretabilidade.</li>
             </ul>
-        </div>
+        </section>
 
-        <div class="card">
-            <h2>2. Panorama Demográfico</h2>
+        <section id="secao-panorama" class="cartao" aria-labelledby="titulo-panorama">
+            <h2 id="titulo-panorama">2. Panorama Demográfico</h2>
             <p>A análise da base populacional limpa revelou que a idade média das pacientes diagnosticadas é de aproximadamente <strong>49,52 anos</strong> (mediana de 48,09 anos, com desvio padrão de 11,38 anos).</p>
             <p>O gráfico abaixo cruza a distribuição etária com o estágio de gravidade do tumor (T), permitindo inferir visualmente se há uma tendência de diagnóstico tardio baseada na idade da paciente.</p>
-            
-            <div class="chart-container">
-                <img src="assets/idade.png" alt="Distribuição de Idade das Pacientes" class="chart-img">
-                <p class="caption">Figura 1: Boxplot relacionando a idade da paciente ao estágio do tumor (T).</p>
-            </div>
-        </div>
 
-        <div class="card">
-            <h2>3. Identificação de Padrões Clínicos</h2>
+            <figure class="grafico">
+                <img id="grafico-idade" class="grafico__imagem" src="assets/idade.png" alt="Distribuição de Idade das Pacientes">
+                <figcaption id="legenda-idade" class="grafico__legenda">Figura 1: Boxplot relacionando a idade da paciente ao estágio do tumor (T).</figcaption>
+            </figure>
+        </section>
+
+        <section id="secao-padroes" class="cartao" aria-labelledby="titulo-padroes">
+            <h2 id="titulo-padroes">3. Identificação de Padrões Clínicos</h2>
             <p>Um dos aspectos mais críticos no estadiamento do câncer é compreender como o crescimento do tumor afeta o sistema linfático. Analisamos a correlação entre o crescimento físico do tumor primário (T) e o risco de espalhamento da doença para os linfonodos axilares (N).</p>
             <p>O gráfico de violino estruturado abaixo investiga a proporção exata de como o aumento de volume tumoral altera a probabilidade de disseminação linfática.</p>
 
-            <div class="chart-container">
-                <img src="assets/estadiamento.png" alt="Relação entre Estadiamento T e N" class="chart-img">
-                <p class="caption">Figura 2: Gráfico de violino demonstrando a distribuição dos linfonodos acometidos por tamanho do tumor.</p>
-            </div>
-        </div>
+            <figure class="grafico">
+                <img id="grafico-estadiamento" class="grafico__imagem" src="assets/estadiamento.png" alt="Relação entre Estadiamento T e N">
+                <figcaption id="legenda-estadiamento" class="grafico__legenda">Figura 2: Gráfico de violino demonstrando a distribuição dos linfonodos acometidos por tamanho do tumor.</figcaption>
+            </figure>
+        </section>
 
-        <div class="card">
-            <h2>4. Subgrupos Moleculares (Tipos de Câncer)</h2>
+        <section id="secao-subgrupos" class="cartao" aria-labelledby="titulo-subgrupos">
+            <h2 id="titulo-subgrupos">4. Subgrupos Moleculares (Tipos de Câncer)</h2>
             <p>Para definir linhas terapêuticas adequadas, as pacientes foram agrupadas de forma heterogênea baseando-se na presença de receptores hormonais e no nível de agressividade:</p>
             <ul>
                 <li><strong>Luminal A e B:</strong> Tumores alimentados por hormônios (Estrogênio/Progesterona). O subtipo A tem crescimento lento, enquanto o B é mais agressivo.</li>
@@ -56,23 +56,23 @@
                 <li><strong>Triplo Negativo:</strong> Desprovidos de receptores hormonais e HER2. É o grupo mais agressivo devido à dependência exclusiva da quimioterapia tradicional.</li>
             </ul>
 
-            <div class="chart-container">
-                <img src="assets/subgrupos.png" alt="Distribuição dos Subgrupos Moleculares" class="chart-img">
-                <p class="caption">Figura 3: Representação da volumetria de pacientes por subtipo molecular.</p>
-            </div>
-        </div>
+            <figure class="grafico">
+                <img id="grafico-subgrupos" class="grafico__imagem" src="assets/subgrupos.png" alt="Distribuição dos Subgrupos Moleculares">
+                <figcaption id="legenda-subgrupos" class="grafico__legenda">Figura 3: Representação da volumetria de pacientes por subtipo molecular.</figcaption>
+            </figure>
+        </section>
 
-        <div class="card">
-            <h2>5. Taxa de Resposta e Distribuição Etária</h2>
+        <section id="secao-resposta" class="cartao" aria-labelledby="titulo-resposta">
+            <h2 id="titulo-resposta">5. Taxa de Resposta e Distribuição Etária</h2>
             <p>Por fim, a análise cruza a idade das pacientes com a eficácia do tratamento neoadjuvante. O objetivo desta visualização é identificar padrões que indiquem se pacientes mais jovens ou mais velhas apresentam variações significativas na taxa de resposta à intervenção clínica inicial.</p>
 
-            <div class="chart-container">
-                <img src="assets/taxa_resposta.png" alt="Taxa de Resposta por Idade" class="chart-img">
-                <p class="caption">Figura 4: Distribuição etária segmentada pela taxa de resposta ao tratamento neoadjuvante.</p>
-            </div>
-        </div>
+            <figure class="grafico">
+                <img id="grafico-resposta" class="grafico__imagem" src="assets/taxa_resposta.png" alt="Taxa de Resposta por Idade">
+                <figcaption id="legenda-resposta" class="grafico__legenda">Figura 4: Distribuição etária segmentada pela taxa de resposta ao tratamento neoadjuvante.</figcaption>
+            </figure>
+        </section>
 
-    </div>
+    </main>
 
 </body>
 </html>

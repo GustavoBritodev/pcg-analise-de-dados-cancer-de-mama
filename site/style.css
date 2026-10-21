@@ -35,13 +35,13 @@ header p {
     margin-top: 1rem;
 }
 
-.container {
+.conteudo {
     max-width: 900px;
     margin: 0 auto;
     padding: 2rem;
 }
 
-.card {
+.cartao {
     background-color: var(--card-bg);
     border-radius: 10px;
     padding: 2.5rem;
@@ -67,7 +67,7 @@ ul {
     padding-left: 1.5rem;
 }
 
-.chart-container {
+.grafico {
     margin: 2rem 0;
     text-align: center;
     background: #fdfdfd;
@@ -76,16 +76,16 @@ ul {
     border-radius: 8px;
 }
 
-.chart-img {
+.grafico__imagem {
     max-width: 100%;
     height: auto;
     border-radius: 4px;
 }
 
-.caption {
+.grafico__legenda {
     font-size: 0.9rem;
     color: #718096;
-    margin-top: 0.5rem;
+    margin: 0.5rem 0 1rem;
     font-style: italic;
 }
 
@@ -102,11 +102,11 @@ ul {
         font-size: 1rem;
     }
 
-    .container {
+    .conteudo {
         padding: 1rem;
     }
 
-    .card {
+    .cartao {
         padding: 1.5rem;
         margin-bottom: 1.5rem;
     }
@@ -119,7 +119,7 @@ ul {
         font-size: 1rem;
     }
 
-    .chart-container {
+    .grafico {
         padding: 0.5rem;
         margin: 1.5rem 0;
     }
