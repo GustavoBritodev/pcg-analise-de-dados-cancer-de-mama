@@ -89,6 +89,24 @@ ul {
     font-style: italic;
 }
 
+.rodape {
+    background-color: var(--primary);
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+    border-top: 5px solid var(--accent);
+}
+
+.rodape p {
+    font-size: 0.95rem;
+    margin: 0 0 0.5rem;
+}
+
+.rodape a {
+    color: white;
+    overflow-wrap: anywhere;
+}
+
 @media (max-width: 768px) {
     header {
         padding: 2rem 1rem;
