@@ -94,9 +94,36 @@ h2 {
     padding-bottom: 0.5rem;
 }
 
+h3 {
+    color: var(--primary);
+    font-size: 1.3rem;
+    margin: 2rem 0 1rem;
+}
+
 p, li {
     font-size: 1.1rem;
     margin-bottom: 1rem;
+}
+
+.glossario {
+    margin: 0;
+}
+
+.glossario dt {
+    font-weight: 700;
+}
+
+.glossario dfn {
+    font-style: normal;
+}
+
+.glossario dd {
+    margin: 0 0 1rem;
+    font-size: 1.05rem;
+}
+
+.glossario dd::first-letter {
+    text-transform: uppercase;
 }
 
 ul {
@@ -293,6 +320,14 @@ ul {
 
     h2 {
         font-size: 1.4rem;
+    }
+
+    h3 {
+        font-size: 1.15rem;
+    }
+
+    .glossario dd {
+        font-size: 0.95rem;
     }
 
     p, li {

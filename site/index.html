@@ -33,6 +33,23 @@
                 <li><strong>Qualidade dos Dados:</strong> Colunas com 100% de ausência de dados (como Unnamed: 98 e Unnamed: 67) foram descartadas, bem como linhas com dados faltantes em variáveis críticas (idade, estadiamento T/N e subtipo molecular).</li>
                 <li><strong>Engenharia de Atributos:</strong> A métrica de idade das pacientes foi convertida de dias para anos para facilitar a interpretabilidade.</li>
             </ul>
+            <h3 id="titulo-glossario">Glossário</h3>
+            <dl class="glossario">
+                <dt><dfn>NaN</dfn></dt>
+                <dd>marcador usado pela biblioteca Pandas para indicar um valor ausente. Neste estudo, os códigos "NA", "NC", "NP" e "x" do conjunto de dados foram convertidos em NaN.</dd>
+                <dt><dfn>Unnamed: 98 e Unnamed: 67</dfn></dt>
+                <dd>nomes que o Pandas dá automaticamente a colunas sem título no arquivo original. Essas duas colunas não têm nenhum valor preenchido (100% de ausência).</dd>
+                <dt><dfn>Neoadjuvante</dfn></dt>
+                <dd>tratamento sistêmico, como a quimioterapia, aplicado antes da cirurgia, com o objetivo de reduzir o tumor. A resposta a esse tratamento é avaliada no tecido retirado na cirurgia.</dd>
+                <dt><dfn>Estadiamento T/N</dfn></dt>
+                <dd>parte do sistema TNM de classificação do câncer. O T descreve o tamanho e a extensão do tumor primário, de T1 (menor) a T4 (maior). O N descreve o comprometimento dos linfonodos regionais, de N0 (nenhum linfonodo acometido) a N3 (maior comprometimento).</dd>
+                <dt><dfn>Boxplot</dfn></dt>
+                <dd>gráfico que resume uma distribuição numérica. A caixa vai do primeiro ao terceiro quartil, onde estão os 50% centrais dos valores; a linha interna marca a mediana; as hastes mostram a dispersão dos demais valores, e pontos isolados indicam valores atípicos.</dd>
+                <dt><dfn>Gráfico de violino</dfn></dt>
+                <dd>gráfico que combina um resumo por quartis com uma curva de densidade espelhada. Quanto mais largo o violino em determinada altura, mais pacientes se concentram naquele valor. Neste site, as linhas tracejadas internas marcam os quartis.</dd>
+                <dt><dfn>HER2</dfn></dt>
+                <dd>sigla, em inglês, do receptor 2 do fator de crescimento epidérmico humano, uma proteína da superfície das células. Tumores com excesso dessa proteína formam o subtipo HER2 Enriquecido e podem ser tratados com terapias-alvo dirigidas a ela.</dd>
+            </dl>
         </section>
 
         <section id="secao-panorama" class="cartao" aria-labelledby="titulo-panorama">
