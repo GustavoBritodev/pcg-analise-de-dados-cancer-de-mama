@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Análise Exploratória: Duke Breast Cancer</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
@@ -41,6 +42,7 @@
 
             <figure class="grafico">
                 <img id="grafico-idade" class="grafico__imagem" src="assets/idade.png" alt="Distribuição de Idade das Pacientes">
+                <button type="button" class="grafico__ampliar" aria-describedby="legenda-idade">Ampliar gráfico</button>
                 <figcaption id="legenda-idade" class="grafico__legenda">Figura 1: Boxplot relacionando a idade da paciente ao estágio do tumor (T).</figcaption>
             </figure>
         </section>
@@ -52,6 +54,7 @@
 
             <figure class="grafico">
                 <img id="grafico-estadiamento" class="grafico__imagem" src="assets/estadiamento.png" alt="Relação entre Estadiamento T e N">
+                <button type="button" class="grafico__ampliar" aria-describedby="legenda-estadiamento">Ampliar gráfico</button>
                 <figcaption id="legenda-estadiamento" class="grafico__legenda">Figura 2: Gráfico de violino demonstrando a distribuição dos linfonodos acometidos por tamanho do tumor.</figcaption>
             </figure>
         </section>
@@ -67,6 +70,7 @@
 
             <figure class="grafico">
                 <img id="grafico-subgrupos" class="grafico__imagem" src="assets/subgrupos.png" alt="Distribuição dos Subgrupos Moleculares">
+                <button type="button" class="grafico__ampliar" aria-describedby="legenda-subgrupos">Ampliar gráfico</button>
                 <figcaption id="legenda-subgrupos" class="grafico__legenda">Figura 3: Representação da volumetria de pacientes por subtipo molecular.</figcaption>
             </figure>
         </section>
@@ -77,6 +81,7 @@
 
             <figure class="grafico">
                 <img id="grafico-resposta" class="grafico__imagem" src="assets/taxa_resposta.png" alt="Taxa de Resposta por Idade">
+                <button type="button" class="grafico__ampliar" aria-describedby="legenda-resposta">Ampliar gráfico</button>
                 <figcaption id="legenda-resposta" class="grafico__legenda">Figura 4: Distribuição etária segmentada pela taxa de resposta ao tratamento neoadjuvante.</figcaption>
             </figure>
         </section>
@@ -90,6 +95,12 @@
         <p>Dados: Saha et al. (2021), The Cancer Imaging Archive. DOI: <a href="https://doi.org/10.7937/TCIA.e3sv-re93">https://doi.org/10.7937/TCIA.e3sv-re93</a></p>
         <p><a class="voltar-topo" href="#topo">Voltar ao topo</a></p>
     </footer>
+
+    <dialog id="dialogo-grafico" class="dialogo-grafico" aria-labelledby="dialogo-grafico-titulo">
+        <p id="dialogo-grafico-titulo" class="dialogo-grafico__titulo"></p>
+        <button type="button" class="dialogo-grafico__fechar">Fechar</button>
+        <div class="dialogo-grafico__area" tabindex="0" role="region" aria-label="Gráfico ampliado"></div>
+    </dialog>
 
 </body>
 </html>

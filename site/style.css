@@ -124,6 +124,75 @@ ul {
     margin: 0.5rem 0 1rem;
 }
 
+.grafico__ampliar,
+.dialogo-grafico__fechar {
+    font: inherit;
+    font-size: 0.95rem;
+    color: var(--secondary);
+    background-color: var(--card-bg);
+    border: 1px solid var(--secondary);
+    border-radius: 6px;
+    padding: 0.4rem 1rem;
+    cursor: pointer;
+}
+
+.grafico__ampliar {
+    display: block;
+    margin: 0.75rem auto 0;
+}
+
+.grafico__ampliar:hover,
+.dialogo-grafico__fechar:hover {
+    background-color: #edf2f7;
+}
+
+.grafico__ampliar:focus-visible,
+.dialogo-grafico__fechar:focus-visible,
+.dialogo-grafico__area:focus-visible {
+    outline: 2px solid var(--secondary);
+    outline-offset: 2px;
+}
+
+.dialogo-grafico {
+    width: min(95vw, 1640px);
+    max-width: 95vw;
+    max-height: 90vh;
+    box-sizing: border-box;
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.dialogo-grafico[open] {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.75rem 1rem;
+    align-items: center;
+}
+
+.dialogo-grafico::backdrop {
+    background-color: rgba(26, 54, 93, 0.75);
+}
+
+.dialogo-grafico__titulo {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.dialogo-grafico__area {
+    grid-column: 1 / -1;
+    max-height: 75vh;
+    overflow: auto;
+}
+
+.dialogo-grafico__imagem {
+    display: block;
+    max-width: none;
+}
+
 .rodape {
     background-color: var(--primary);
     color: white;
